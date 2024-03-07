@@ -1,0 +1,23 @@
+body{
+   background-color: hsla(0, 0%, 0%, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin:0;
+}
+
+main{
+   width:38%;
+   height:90%;
+   background-color: hsl(0, 0%, 80%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.calculator{
+   background-color: rgb(104, 126, 81);
+   width:93%;
+   height:95%;
+}
