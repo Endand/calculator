@@ -42,14 +42,14 @@ main{
    flex-wrap: wrap;
 }
 
-.buttons button{
+button{
    width: 25%;
    box-sizing: border-box;
    font-size: 1.5rem;
    border: 1px solid white;
 }
 
-.buttons button.equal {
+.equal {
    width: 50%;
 }
 
@@ -58,17 +58,13 @@ main{
 }
 
 .clear{
-   background-color: hsla(0, 100%, 80%);
-}
-
-.signChange{
-   background-color: hsla(30, 100%, 70%);
+   background-color: hsla(0, 100%, 75%);
 }
 
 .number{
    background-color: hsla(26, 93%, 80%);
 }
 
-.operator, .equal{
+.signChange, .operator, .equal{
    background-color: hsla(33, 100%, 60%) ;
 }

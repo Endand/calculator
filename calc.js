@@ -15,6 +15,7 @@ let firstNum=0;
 let secNum=0;
 let operator='';
 
+
 function operate(a, b, op) {
    switch (op) {
        case '+':
@@ -32,4 +33,8 @@ function operate(a, b, op) {
        default:
            console.error("Invalid operator");
    }
+}
+
+function display(){
+
 }
