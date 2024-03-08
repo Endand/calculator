@@ -48,17 +48,21 @@ function setupNumberListeners() {
 }
 
 function updateNumber(value) {
-   if(value==='.' && displayElement.textContent.includes('.')){
+   let currentText= displayElement.textContent;
+
+   if(value==='.' && currentText.includes('.')){
       return;
    }
 
-   displayElement.textContent = displayElement.textContent === '0' 
+   currentText = currentText === '0' 
    ? value 
-   : displayElement.textContent + value;
+   : currentText + value;
+
+   displayElement.textContent = currentText;
 
    operator===''
-   ? firstNum=parseFloat(displayElement.textContent)
-   : secNum=parseFloat(displayElement.textContent);
+   ? firstNum=parseFloat(currentText)
+   : secNum=parseFloat(currentText);
 }
 
 function setupACListener() {
