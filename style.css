@@ -68,3 +68,7 @@ button{
 .signChange, .operator, .equal{
    background-color: hsla(33, 100%, 60%) ;
 }
+
+button:active{
+   filter: brightness(1.2); 
+}

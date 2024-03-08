@@ -145,10 +145,11 @@ function initializeCalculator() {
    setupClearListener();
    setupEqualListener();
    setupOperatorListener();
-   
 }
 
 document.addEventListener('DOMContentLoaded', ()=>
    initializeCalculator()
 );
+
+
 
