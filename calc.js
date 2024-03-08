@@ -16,20 +16,20 @@ let secNum=0;
 let operator='';
 
 
-function performOperation(a, b, op) {
+function operate(a, b, op) {
    switch (op) {
        case '+':
-           add(a, b);
-           break;
+         return add(a, b);
+           
        case '-':
-           subtract(a, b);
-           break;
+         return subtract(a, b);
+          
        case '*':
-           multiply(a, b);
-           break;
+           return multiply(a, b);
+           
        case '/':
-           divide(a, b);
-           break;
+         return divide(a, b);
+           
        default:
            console.error("Invalid operator");
            return NaN;
@@ -48,19 +48,40 @@ function setupNumberListeners() {
 }
 
 function updateNumber(value) {
-   displayElement.textContent = displayElement.textContent === '0' 
-   ? value : displayElement.textContent + value;
+   if(operator===''){
+      displayElement.textContent = displayElement.textContent === '0' 
+      ? value 
+      : displayElement.textContent + value;
+      
+      firstNum=Number(displayElement.textContent);
+
+   }else{
+      displayElement.textContent = value;
+      secNum=Number(displayElement.textContent);
+      console.log(firstNum);
+      console.log(secNum);
+      console.log(operator);
+      firstNum= operate(firstNum,secNum,operator);
+      operator='';
+   }
 }
 
 function setupACListener() {
    const ac = document.querySelector('.ac');
    ac.addEventListener('click', () => {
       clearDisplay();
+      clearData();
    });
 }
 
 function clearDisplay() {
    displayElement.textContent = '0';
+}
+
+function clearData() {
+   firstNum=0;
+   secNum=0;
+   operator='';
 }
 
 function setupClearListener() {
@@ -86,12 +107,39 @@ function setupSCListener() {
 function invertNumber() {
    displayElement.textContent = String(Number(displayElement.textContent)*-1);
 }
+function setupEqualListener() {
+   const equal = document.querySelector('.equal');
+   equal.addEventListener('click', () => {
+      showResult();
+   });
+}
+
+function showResult() {
+   displayElement.textContent = String(firstNum);
+}
+
+function setupOperatorListener() {
+   const ops = document.querySelectorAll('.operator');
+   ops.forEach(op =>{
+      op.addEventListener('click', (e) => {
+         setOperator(e.target.textContent);
+      });
+   });
+}
+
+function setOperator(op) {
+   operator=op;
+   clearDisplay();
+}
 
 function initializeCalculator() {
    setupNumberListeners();
    setupACListener();
    setupSCListener();
    setupClearListener();
+   setupEqualListener();
+   setupOperatorListener();
+   
 }
 
 document.addEventListener('DOMContentLoaded', ()=>
