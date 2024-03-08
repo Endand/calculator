@@ -105,6 +105,11 @@ function setupSCListener() {
 
 function invertNumber() {
    displayElement.textContent = String(Number(displayElement.textContent)*-1);
+   if (operator === '') {
+      firstNum = parseFloat(displayElement.textContent);
+   } else {
+      secNum = parseFloat(displayElement.textContent);
+   }
 }
 function setupEqualListener() {
    const equal = document.querySelector('.equal');
