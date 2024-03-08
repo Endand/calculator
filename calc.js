@@ -51,19 +51,14 @@ function updateNumber(value) {
    if(value==='.' && displayElement.textContent.includes('.')){
       return;
    }
-   if(operator===''){
-      displayElement.textContent = displayElement.textContent === '0' 
-      ? value 
-      : displayElement.textContent + value;
-      
-      firstNum=Number(displayElement.textContent);
 
-   }else{
-      displayElement.textContent = value;
-      secNum=Number(displayElement.textContent);
-      firstNum= operate(firstNum,secNum,operator);
-      operator='';
-   }
+   displayElement.textContent = displayElement.textContent === '0' 
+   ? value 
+   : displayElement.textContent + value;
+
+   operator===''
+   ? firstNum=parseFloat(displayElement.textContent)
+   : secNum=parseFloat(displayElement.textContent);
 }
 
 function setupACListener() {
@@ -110,11 +105,18 @@ function invertNumber() {
 function setupEqualListener() {
    const equal = document.querySelector('.equal');
    equal.addEventListener('click', () => {
+      calculate();
       showResult();
    });
 }
 
+function calculate(){
+   firstNum= operate(firstNum,secNum,operator);
+   operator='';
+}
+
 function showResult() {
+   
    displayElement.textContent = String(firstNum);
 }
 
