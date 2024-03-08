@@ -58,7 +58,7 @@ function updateNumber(value) {
    ? value 
    : currentText + value;
 
-   displayElement.textContent = currentText;
+   displayElement.textContent = currentText.slice(0,10);
 
    operator===''
    ? firstNum=parseFloat(currentText)
@@ -126,7 +126,7 @@ function calculate(){
 
 function showResult() {
    
-   displayElement.textContent = String(firstNum);
+   displayElement.textContent = String(firstNum).slice(0,10);
 }
 
 function setupOperatorListener() {
