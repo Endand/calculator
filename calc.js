@@ -48,6 +48,9 @@ function setupNumberListeners() {
 }
 
 function updateNumber(value) {
+   if(value==='.' && displayElement.textContent.includes('.')){
+      return;
+   }
    if(operator===''){
       displayElement.textContent = displayElement.textContent === '0' 
       ? value 
@@ -58,9 +61,6 @@ function updateNumber(value) {
    }else{
       displayElement.textContent = value;
       secNum=Number(displayElement.textContent);
-      console.log(firstNum);
-      console.log(secNum);
-      console.log(operator);
       firstNum= operate(firstNum,secNum,operator);
       operator='';
    }
